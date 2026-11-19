@@ -99,7 +99,7 @@
       <p class="muted">Three fixed papers, or a fresh random paper drawn from the 195-question bank.
         Answers and explanations appear only after you submit.</p>
       <a class="btn quiet pdflink" href="life-in-uk-study-pack.pdf" target="_blank" rel="noopener"
-         style="margin-top:12px;padding:12px 14px;font-size:15px">Read the study pack PDF &middot; 135 pages</a>
+         style="margin-top:12px;padding:12px 14px;font-size:15px">Read the study pack PDF &middot; <span style="white-space:nowrap">135&nbsp;pages</span></a>
     </div>
     <div id="papers"></div>
     <div class="card" style="margin-top:14px">
@@ -189,7 +189,7 @@ function randomPaper(){
 function chapterCount(qs){
   const c = {};
   qs.forEach(q => c[q.c] = (c[q.c] || 0) + 1);
-  return [1,2,3,4,5].map(n => c[n] || 0).join(" / ");
+  return [1,2,3,4,5].map(n => c[n] || 0).join("/");
 }
 
 function buildHome(){
@@ -199,14 +199,14 @@ function buildHome(){
     const d = document.createElement("div");
     d.className = "paper";
     d.innerHTML = `<h3>Mock paper ${i + 1}</h3>
-      <div class="meta">24 questions &middot; chapters ${chapterCount(qs)} &middot; 45 minutes</div>
+      <div class="meta">24 questions &middot; chapters ${chapterCount(qs)} &middot; <span style="white-space:nowrap">45&nbsp;minutes</span></div>
       <button class="btn" data-p="${i}">Start paper ${i + 1}</button>`;
     box.appendChild(d);
   });
   const d = document.createElement("div");
   d.className = "paper";
   d.innerHTML = `<h3>Random paper</h3>
-    <div class="meta">24 questions drawn from all 195, options shuffled &middot; 45 minutes</div>
+    <div class="meta">24 questions drawn from all 195, options shuffled &middot; <span style="white-space:nowrap">45&nbsp;minutes</span></div>
     <button class="btn ghost" data-p="r">Start random paper</button>`;
   box.appendChild(d);
   box.querySelectorAll("button[data-p]").forEach(b => b.onclick = () => {
