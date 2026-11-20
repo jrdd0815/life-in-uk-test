@@ -1,2 +1,11 @@
+# Unlisted site: reachable only by people who have the link.
+#
+# The page carries <meta name="robots" content="noindex, nofollow, noarchive,
+# nosnippet, noimageindex">. That tag is what keeps it out of search results, so
+# "/" must stay crawlable here — blocking it means crawlers never see the tag and
+# may index the bare URL instead ("indexed, though blocked by robots.txt").
+#
+# The PDF cannot carry a meta tag, so it is refused to crawlers outright.
+# robots.txt only instructs crawlers: direct links still download normally.
 User-agent: *
-Disallow: /
+Disallow: /life-in-uk-study-pack.pdf
